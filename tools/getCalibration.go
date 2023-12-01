@@ -1,7 +1,6 @@
 package tools
 
 import (
-	// "fmt"
 	"regexp"
 	"strconv"
 	"strings"
@@ -58,13 +57,12 @@ func GetCalValue(rawString string, part int) (int, error) {
 			lookForNumbers := regexp.MustCompile(`\d`)
 			foundNumbers := lookForNumbers.FindAllString(rawValue, -1)
 			if part == 2 {
-				test := regexp2.MustCompile(`(?=(one|two|three|four|five|six|seven|eight|nine))|\d`, 0)
-				foundNumbers = regexp2FindAllString(test, rawValue)
+				lookForWordNumbers := regexp2.MustCompile(`(?=(one|two|three|four|five|six|seven|eight|nine))|\d`, 0)
+				foundNumbers = regexp2FindAllString(lookForWordNumbers, rawValue)
 			}
 
 			foundNumbers = convertTextToNumbers(foundNumbers)
 
-			// fmt.Println(foundNumbers)
 			switch len(foundNumbers) {
 			case 1:
 				for _, number := range foundNumbers {
@@ -75,7 +73,6 @@ func GetCalValue(rawString string, part int) (int, error) {
 					if err != nil {
 						return output, err
 					}
-					// fmt.Println(num)
 					output += num
 				}
 			default:
@@ -87,7 +84,6 @@ func GetCalValue(rawString string, part int) (int, error) {
 				if err != nil {
 					return output, err
 				}
-				// fmt.Println(calValue)
 				output += calValue
 			}
 
