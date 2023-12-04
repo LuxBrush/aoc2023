@@ -8,5 +8,6 @@ import (
 func main() {
 	day01.Part01("print")
 	day01.Part02("print")
-	day02.Part01("run")
+	day02.Part01("print")
+	day02.Part02("print")
 }
