@@ -11,5 +11,6 @@ func main() {
 	day01.Part02("print")
 	day02.Part01("print")
 	day02.Part02("print")
-	day03.Part01("run")
+	day03.Part01("print")
+	day03.Part02("print")
 }

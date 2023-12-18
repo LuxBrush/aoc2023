@@ -2,7 +2,9 @@ package tools
 
 import "testing"
 
-var inputDemoDay03 = ReadFileToString("../day03/demoPart01.txt")
+var demoPart01 = ReadFileToString("../day03/demoPart01.txt")
+var demoPart02 = ReadFileToString("../day03/demoPart02.txt")
+var demoPart02P = ReadFileToString("../day03/demoPart02-pattern.txt")
 
 func TestProcessSchematic(t *testing.T) {
 	type args struct {
@@ -16,8 +18,23 @@ func TestProcessSchematic(t *testing.T) {
 	}{
 		{
 			name: "Part 01",
-			args: args{schematic: inputDemoDay03, part: 1},
+			args: args{schematic: demoPart01, part: 1},
 			want: 4361,
+		},
+		{
+			name: "Part 02",
+			args: args{schematic: demoPart01, part: 2},
+			want: 467835,
+		},
+		{
+			name: "Part 02: Large Grid",
+			args: args{schematic: demoPart02, part: 2},
+			want: 935670,
+		},
+		{
+			name: "Part 02: Pattern",
+			args: args{schematic: demoPart02P, part: 2},
+			want: 1071447,
 		},
 	}
 	for _, tt := range tests {
